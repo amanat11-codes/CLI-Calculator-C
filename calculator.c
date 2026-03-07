@@ -11,7 +11,7 @@ void quotient(double n1, double n2);
 
 int main(void)
 {
-    double num1, num2, result;
+    double num1, num2;
     char operator;
     int op;
     printf("Welcome to CLI Calculator.\nAvailable operators: + - * / \nNote: Any non-numeric characters after the number will be ignored.\n");
@@ -100,6 +100,6 @@ void quotient(double n1, double n2)
     {
         printf("Divison by 0 is not allowed.\n");
     } else{
-        printf("Quotient: %.2f", n1/n2);
+        printf("Quotient: %.2f\n", n1/n2);
     }
 }
