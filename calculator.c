@@ -35,6 +35,7 @@ int main(void)
             quotient(num1, num2);
             break;
     }
+    return 0;
 }
 
 double get_input(int index)
@@ -65,7 +66,12 @@ int get_operator()
     while (res == false)
     {
         printf("Choose operator: ");
-        scanf("%c", &op);
+
+        if (scanf("%c", &op) == EOF){
+            puts("\nNo more input, exiting program.");
+            exit(0);
+        }
+
         op_ascii = (int) op;
         if(!(op_ascii == 42 || op_ascii == 43 || op_ascii == 45 || op_ascii == 47))
         {
