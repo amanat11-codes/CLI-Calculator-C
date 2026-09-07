@@ -2,12 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include "arithmetic.h"
+
 double get_input(int index);
+
 int get_operator();
-void sum(double n1, double n2);
-void difference(double n1, double n2);
-void product(double n1, double n2);
-void quotient(double n1, double n2);
+
+
 
 int main(void)
 {
@@ -20,21 +21,25 @@ int main(void)
     num2 = get_input(2);
 
     op = get_operator();
+    double result;
 
     switch(op){
         case 43:
-            sum(num1, num2);
+            result = sum(num1, num2);
             break;
         case 45:
-            difference(num1, num2);
+            result = difference(num1, num2);
             break;
         case 42:
-            product(num1, num2);
+            result = product(num1, num2);
             break;
         case 47:
-            quotient(num1, num2);
+            (num2 == 0) ? (printf("Division by 0 is not allowed\n")) : (result = quotient(num1, num2));
             break;
     }
+
+    printf("The result is %lf\n", result);
+
     return 0;
 }
 
@@ -80,26 +85,3 @@ int get_operator()
     }
 }
 
-void sum(double n1, double n2)
-{
-    printf("Summation: %.2f\n", n1+n2);
-}
-
-void difference(double n1, double n2)
-{
-    printf("Difference: %.2f\n", n1-n2);
-}
-
-void product(double n1, double n2)
-{   
-    printf("Product: %.2f\n", n1*n2);
-}
-void quotient(double n1, double n2)
-{
-    if (n2 == 0.0)
-    {
-        printf("Divison by 0 is not allowed.\n");
-    } else{
-        printf("Quotient: %.2f\n", n1/n2);
-    }
-}
